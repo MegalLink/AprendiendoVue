@@ -1,6 +1,11 @@
 <template>
   <div id="app">
+<ComponenteSlot>
+<!-- <h1>desde componentes</h1> -->
+<template slot="slot1"> llamando slot 1</template>
+<template slot="slot2"> lamando slot 2</template>
 
+</ComponenteSlot>
 <Usuarios v-for="usuario in usuarios" :key="usuario.id" :name="usuario.name" :email="usuario.email" :phone="usuario.phone"></Usuarios>
 
   </div>
@@ -9,10 +14,11 @@
 <script>
 import axios from 'axios'
 import Usuarios from './components/Usuarios'
+import ComponenteSlot from './components/SlotComponent'
 export default {
   name: 'App',
   components: {
-   Usuarios
+   Usuarios,ComponenteSlot
   },
   data(){
     return {
