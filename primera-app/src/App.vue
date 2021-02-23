@@ -1,22 +1,37 @@
 <template>
   <div id="app">
-<h1>Hola</h1>
-<Persona nombre="Juan" edad="13"></Persona>
+
+<Usuarios v-for="usuario in usuarios" :key="usuario.id" :name="usuario.name" :email="usuario.email" :phone="usuario.phone"></Usuarios>
+
   </div>
 </template>
 
 <script>
-
-
-import Persona from './components/Persona'
+import axios from 'axios'
+import Usuarios from './components/Usuarios'
 export default {
   name: 'App',
-  
   components: {
-   Persona
-
+   Usuarios
   },
-  
+  data(){
+    return {
+        usuarios:[],
+    }
+  },methods:{
+    obtenerUsuarios(){
+      axios.get("https://jsonplaceholder.typicode.com/users").then(
+        (respuesta)=>{
+          this.usuarios=respuesta.data
+        }
+
+      )
+      }
+    }
+    ,mounted(){
+      this.obtenerUsuarios()
+      }
+ 
 
 }
 </script>
