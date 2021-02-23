@@ -1,0 +1,87 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .boton{
+            background-color: #45f;
+            border-radius: 4px;
+            color: #ffff;
+            transition: ease-out;
+            transition-duration: 0.3s;
+        }
+        .boton:hover{
+            background-color: #41f;
+        }
+       
+        .tema_rojo{
+            background-color: red;
+            color: white;
+            transition: ease-in;
+            transition-duration: 0.5s;
+        }
+        .tema_azul{
+            background-color:blue;
+            color: white;
+            transition: ease-in;
+            transition-duration: 0.5s;
+        }
+        /* Modificadores de estado para vue en una transición hay más */
+        .aparecer-enter{
+            /* Entrada */
+            opacity: 0;
+        }
+        .aparecer-enter-active{
+            /* Transcurso entrada */
+            transition: opacity 1s;
+        }
+        .aparecer-leave-to{
+            /* Salida */
+            opacity: 0;
+        }
+        .aparecer-leave-active{
+            /* Transcurso salida */
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main">
+        <transition name="aparecer">
+        <img v-if="!mostrar" src="https://picsum.photos/seed/picsum/1000/100"></img>
+
+        </transition>
+        <button @click="onMostrar"><span v-if="mostrar">Mostrar</span><span v-else="mostrar">No Mostrar</span></button>
+        <h2 v-bind:class="{tema_rojo: tema,tema_azul:!tema }">Listado de tareas</h2>
+        <p>Filtra titulo:</p><input type="text" v-model="filtro">
+        <ul>
+            <li v-for="item of filtrarTitulo"> 
+                <span>{{item.titulo}}</span> 
+                <button class="boton" v-on:click=completarTarea(item)>Terminada</button>
+            </li>
+        </ul>
+        <h2 v-bind:class="{tema_rojo: tema,tema_azul:!tema }">Listado de tareas completadas</h2>
+        <ul>
+            <li v-for="item of tareasCompletadas"> 
+                <span >{{item.titulo}}</span> 
+                <button class="boton" v-on:click=completarTarea(item)>No terminada</button>
+            </li>
+        </ul>
+        <h2 v-bind:class="{tema_rojo: tema,tema_azul:!tema }">Agregar tarea</h2>
+        <input placeholder="Escriba su tarea" type="text" v-model="tarea">
+        <button @click="agregarTarea">Agregar tarea</button>
+        <hr>
+        <button class="boton" @click="cambiarTema">Cambiar Tema</button>
+        <pre>
+            {{tareas}}
+        </pre>
+
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
