@@ -6,7 +6,9 @@ data:{
     filtro:"",
     tarea:"",
     tareas:[{titulo:"Lavar la ropa",completado:false},
-    {titulo:"Lavar los platos",completado:false},{titulo:"Lavar los dientes",completado:true}]
+    {titulo:"Lavar los platos",completado:false},{titulo:"Lavar los dientes",completado:true}
+    ],
+    personas:[]
 },
 methods:{
     agregarTarea(){
@@ -20,7 +22,8 @@ methods:{
     },
     onMostrar(){
         this.mostrar=!this.mostrar
-    }
+    },
+    
 }
 ,computed:{
     tareasCompletadas(){
@@ -31,5 +34,12 @@ methods:{
     }
    
     
+}
+,mounted(){
+    console.log("On init")
+    axios.get("https://jsonplaceholder.typicode.com/users").then(respuesta=>{
+        console.log(respuesta.data)
+        this.personas=respuesta.data
+    })
 }
 })
