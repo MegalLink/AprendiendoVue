@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Contador/>
     <Elemento tipo="h1"> Texto de este elemento h1</Elemento>
     <Elemento tipo="h2"> Texto de este elemento h2</Elemento>
     <Elemento tipo="h3"> Texto de este elemento h3</Elemento>
@@ -23,10 +24,11 @@ import Usuarios from './components/Usuarios'
 import ComponenteSlot from './components/SlotComponent'
 import Padre from './components/Padre'
 import Elemento from './components/Elemento'
+import Contador from './components/Contador'
 export default {
   name: 'App',
   components: {
-   Usuarios,ComponenteSlot,Padre,Elemento
+   Usuarios,ComponenteSlot,Padre,Elemento,Contador
   },
   data(){
     return {
