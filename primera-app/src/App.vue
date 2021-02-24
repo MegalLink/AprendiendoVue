@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <Elemento tipo="h1"> Texto de este elemento h1</Elemento>
+    <Elemento tipo="h2"> Texto de este elemento h2</Elemento>
+    <Elemento tipo="h3"> Texto de este elemento h3</Elemento>
+    <Elemento tipo="button"> Texto de este elemento button</Elemento>
+    
     <Padre/>
 <ComponenteSlot>
 <!-- <h1>desde componentes</h1> -->
@@ -17,10 +22,11 @@ import axios from 'axios'
 import Usuarios from './components/Usuarios'
 import ComponenteSlot from './components/SlotComponent'
 import Padre from './components/Padre'
+import Elemento from './components/Elemento'
 export default {
   name: 'App',
   components: {
-   Usuarios,ComponenteSlot,Padre,
+   Usuarios,ComponenteSlot,Padre,Elemento
   },
   data(){
     return {
