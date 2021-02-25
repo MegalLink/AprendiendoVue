@@ -27,10 +27,11 @@ import Padre from './components/Padre'
 import Elemento from './components/Elemento'
 import Contador from './components/Contador'
 import UsuariosVuex from './components/UsuariosVuex'
-import {store} from './store/store'
+
 export default {
   name: 'App',
-  store,
+  
+  
   components: {
    Usuarios,ComponenteSlot,Padre,Elemento,Contador,UsuariosVuex
 
