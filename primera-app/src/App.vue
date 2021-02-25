@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <h1>Trabajar con rutas</h1>
-    <router-link to="/">Vuex</router-link>
-    <router-link to="/Padre">Padre</router-link>
-    <router-link to="/SlotComponent">Slot Component</router-link>
-    <router-link to="/Contador">Contador vuex</router-link>
+    <router-link to="/" tag="li" exact>Vuex</router-link>
+    <router-link to="/Padre" tag="li" active-class="active">Padre</router-link>
+    <router-link to="/SlotComponent" tag="li"><a>Slot component</a></router-link>
+    <router-link to="/Contador" tag="li">Contador vuex</router-link>
 
     <router-view>
       <UsuariosVuex></UsuariosVuex>
@@ -67,5 +67,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.router-link-active{
+  background-color: orange;
+}
+.active{
+  background-color: red;
 }
 </style>
