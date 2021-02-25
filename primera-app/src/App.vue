@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <UsuariosVuex></UsuariosVuex>
     <Contador/>
     <Elemento tipo="h1"> Texto de este elemento h1</Elemento>
     <Elemento tipo="h2"> Texto de este elemento h2</Elemento>
@@ -25,10 +26,14 @@ import ComponenteSlot from './components/SlotComponent'
 import Padre from './components/Padre'
 import Elemento from './components/Elemento'
 import Contador from './components/Contador'
+import UsuariosVuex from './components/UsuariosVuex'
+import {store} from './store/store'
 export default {
   name: 'App',
+  store,
   components: {
-   Usuarios,ComponenteSlot,Padre,Elemento,Contador
+   Usuarios,ComponenteSlot,Padre,Elemento,Contador,UsuariosVuex
+
   },
   data(){
     return {
