@@ -5,6 +5,7 @@
     <router-link to="/Padre" tag="li" active-class="active">Padre</router-link>
     <router-link to="/SlotComponent" tag="li"><a>Slot component</a></router-link>
     <router-link to="/Contador" tag="li">Contador vuex</router-link>
+    <router-link to="/Posts/01" tag="li">Posts</router-link>
     <button @click="navegarInicio" >Push hacia una dirección</button>
     <router-view>
       <UsuariosVuex></UsuariosVuex>
@@ -15,6 +16,7 @@
         <template slot="slot1"> llamando slot 1</template>
         <template slot="slot2"> llamando slot 2</template>
       </ComponenteSlot>
+      <Posts/>
     </router-view>
     <Elemento tipo="h1"> Texto de este elemento h1</Elemento>
   </div>
@@ -28,6 +30,7 @@ import Padre from "./components/Padre";
 import Elemento from "./components/Elemento";
 import Contador from "./components/Contador";
 import UsuariosVuex from "./components/UsuariosVuex";
+import Posts from "./components/Posts"
 
 export default {
   name: "App",
@@ -37,7 +40,7 @@ export default {
     Padre,
     Elemento,
     Contador,
-    UsuariosVuex,
+    UsuariosVuex,Posts
   },
   data() {
     return {
