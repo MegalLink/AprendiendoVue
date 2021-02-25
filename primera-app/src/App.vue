@@ -5,7 +5,7 @@
     <router-link to="/Padre" tag="li" active-class="active">Padre</router-link>
     <router-link to="/SlotComponent" tag="li"><a>Slot component</a></router-link>
     <router-link to="/Contador" tag="li">Contador vuex</router-link>
-
+    <button @click="navegarInicio" >Push hacia una dirección</button>
     <router-view>
       <UsuariosVuex></UsuariosVuex>
       <Contador />
@@ -52,6 +52,9 @@ export default {
           this.usuarios = respuesta.data;
         });
     },
+    navegarInicio(){
+      this.$router.push('/')
+    }
   },
   mounted() {
     this.obtenerUsuarios();
