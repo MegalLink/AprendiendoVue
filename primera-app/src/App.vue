@@ -1,61 +1,62 @@
 <template>
   <div id="app">
-    <UsuariosVuex></UsuariosVuex>
-    <Contador/>
+    <h1>Trabajar con rutas</h1>
+    <router-link to="/">Vuex</router-link>
+    <router-link to="/Padre">Padre</router-link>
+    <router-link to="/SlotComponent">Slot Component</router-link>
+    <router-link to="/Contador">Contador vuex</router-link>
+
+    <router-view>
+      <UsuariosVuex></UsuariosVuex>
+      <Contador />
+      <Padre />
+      <ComponenteSlot>
+        <!-- <h1>desde componentes</h1> -->
+        <template slot="slot1"> llamando slot 1</template>
+        <template slot="slot2"> llamando slot 2</template>
+      </ComponenteSlot>
+    </router-view>
     <Elemento tipo="h1"> Texto de este elemento h1</Elemento>
-    <Elemento tipo="h2"> Texto de este elemento h2</Elemento>
-    <Elemento tipo="h3"> Texto de este elemento h3</Elemento>
-    <Elemento tipo="button"> Texto de este elemento button</Elemento>
-    
-    <Padre/>
-<ComponenteSlot>
-<!-- <h1>desde componentes</h1> -->
-<template slot="slot1"> llamando slot 1</template>
-<template slot="slot2"> y llamando slot 2</template>
-
-</ComponenteSlot>
-<Usuarios v-for="usuario in usuarios" :key="usuario.id" :name="usuario.name" :email="usuario.email" :phone="usuario.phone"></Usuarios>
-
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import Usuarios from './components/Usuarios'
-import ComponenteSlot from './components/SlotComponent'
-import Padre from './components/Padre'
-import Elemento from './components/Elemento'
-import Contador from './components/Contador'
-import UsuariosVuex from './components/UsuariosVuex'
+import axios from "axios";
+
+import ComponenteSlot from "./components/SlotComponent";
+import Padre from "./components/Padre";
+import Elemento from "./components/Elemento";
+import Contador from "./components/Contador";
+import UsuariosVuex from "./components/UsuariosVuex";
 
 export default {
-  name: 'App',
-  
-  
+  name: "App",
+
   components: {
-   Usuarios,ComponenteSlot,Padre,Elemento,Contador,UsuariosVuex
-
+    ComponenteSlot,
+    Padre,
+    Elemento,
+    Contador,
+    UsuariosVuex,
   },
-  data(){
+  data() {
     return {
-        usuarios:[],
-    }
-  },methods:{
-    obtenerUsuarios(){
-      axios.get("https://jsonplaceholder.typicode.com/users").then(
-        (respuesta)=>{
-          this.usuarios=respuesta.data
-        }
-
-      )
-      }
-    }
-    ,mounted(){
-      this.obtenerUsuarios()
-      }
- 
-
-}
+      usuarios: [],
+    };
+  },
+  methods: {
+    obtenerUsuarios() {
+      axios
+        .get("https://jsonplaceholder.typicode.com/users")
+        .then((respuesta) => {
+          this.usuarios = respuesta.data;
+        });
+    },
+  },
+  mounted() {
+    this.obtenerUsuarios();
+  },
+};
 </script>
 
 <style>
